@@ -1,3 +1,4 @@
+// เพิ่มเติมใน class
 // let user = {
 //     name: "Thanawat",
 //     age: 30,
@@ -24,15 +25,15 @@
 
 // console.log(human);
 
+
 //Exercise
 
 // let obj = {};
 // let key;
 // let value;
 
-
 // while (key !== "stop" || value !== "stop") {
-//   key = prompt("Enter key")
+//   key = prompt("Enter key");
 //   if (key == "stop") {
 //     break;
 //   }
@@ -79,21 +80,67 @@
 
 // Exercise 2
 
-let fruit = {};
-let key;
-let value;
+// let fruit = {};
+// let key;
+// let value;
 
-while(true) {
-  key = prompt("Enter fruit's name");
-  if (key == "stop") {
-    break;
-  } 
-    value = Number(prompt("Enter fruit's amount"));
-    if (value > 1) {
-      fruit[key + "s"] = value;
-      console.log(fruit);
-    } else {
-      fruit[key] = value;
-      console.log(fruit);
-    }
-} 
+// while (true) {
+//   key = prompt("Enter fruit's name");
+
+//   if (key == "stop") {
+//     break;
+//   }
+
+//   value = Number(prompt("Enter fruit's amount"));
+
+//   if (value > 1) {
+//     fruit[key + "s"] = value;
+//     console.log(fruit);
+//   } else {
+//     fruit[key] = value;
+//     console.log(fruit);
+//   }
+// } 
+
+// Exercise 
+
+// let user = {};
+
+// user.name = "Sonter";
+// user.surname = "Pakorn";
+// user.name = "Boy";
+// delete user.name;
+
+// Exercise 
+
+// function isEmpty(obj) {
+//   for (let key in obj) {
+//     return false;
+//   }
+//   return true;
+// }
+
+// Exercise
+// ans. สามารถทำได้ 
+
+// const user = {
+//   name: "John"
+// };
+
+// // does it work?
+// user.name = "Pete";
+
+// Exercise
+
+let salaries = {
+  John: 100,
+  Ann: 160,
+  Pete: 130
+};
+
+function sum(salaries) {
+  for (let key in sum) {
+    sum += salaries[key];
+  }
+}
+alert(sum);
