@@ -102,33 +102,58 @@
 //   }
 // } 
 
-// Exercise 
+// Exercise
 
-// let user = {};
-
-// user.name = "Sonter";
-// user.surname = "Pakorn";
-// user.name = "Boy";
-// delete user.name;
-
-// Exercise 
-
-// function isEmpty(obj) {
-//   for (let key in obj) {
-//     return false;
-//   }
-//   return true;
+// const obj = {
+//   name: "thanawat",
+//   age: 24,
+//   height: 160,
+//   weight: 46,
 // }
 
+// let clone = {}; //// Object.assign({}, obj);
+
+// for (let key in obj) { 
+//   clone[key] = obj[key];
+// }
+// clone.name = "kla";
+
+// console.log(clone.name);
+
+
+// Exercise 
+
+let obj = {};
+obj.name = "Sonter";
+obj.surname = "Pakorn";
+obj.name = "Boy";
+delete obj.name;
+
+
+// Exercise 
+
+function isEmpty(obj) {
+  let isEmpty = true;
+  for (let key in obj) {
+    isEmpty = false;
+  }
+  return isEmpty;
+}
+//test
+let obj = {
+
+}
+
 // Exercise
-// ans. สามารถทำได้ 
+// ans. ไม่ Error
 
-// const user = {
-//   name: "John"
-// };
+const user = {
+  name: "John"
+};
 
-// // does it work?
-// user.name = "Pete";
+// does it work?
+user.name = "Pete";
+
 
 // Exercise
 
@@ -139,8 +164,63 @@ let salaries = {
 };
 
 function sum(salaries) {
-  for (let key in sum) {
-    sum += salaries[key];
+let sum = 0;
+  for (let key in salaries) {
+    sum = sum + salaries[key];
   }
+  return sum;
 }
-alert(sum);
+console.log(sum(salaries))
+
+
+
+//Exercise
+function multiplyNumeric(obj, times) {
+  for (let key in obj) {
+    if (typeof (obj[key]) == "number") {
+      obj[key] *= times;
+    }
+  }
+  return obj;
+}
+
+let menu = {
+  width: 200,
+  height: 300,
+  title: "My menu"
+};
+
+console.log(multiplyNumberic(obj, 2));
+
+
+
+// Clone
+const obj = {
+  name: 'sonter',
+  age: 18,
+  height: 196,
+  weight: 70,
+}
+
+const obj2 = {
+  name: 'Nat',
+  weight: 98
+}
+
+const obj3 = {
+  name: 'Tle',
+  skill: "nodejs"
+}
+
+const obj4 = {
+  name: 'Kla',
+  address: 'Thailand'
+}
+
+Object.assign(obj3, obj, obj2, obj4);
+
+console.log(obj3);
+
+console.log(obj);
+
+console.log(obj2);
