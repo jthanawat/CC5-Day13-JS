@@ -1,226 +1,165 @@
-// เพิ่มเติมใน class
-// let user = {
-//     name: "Thanawat",
-//     age: 30,
-//     "computer skill": null
-// };
+// let obj1 = {
+//     name: 'nat',
+//     sayHi() {
+//         alert('Hello'//this.name)
+//     },
+//     sayGoodbye() {
+//         alert("Goodbye")
+//     }
+// }
 
-// user.height = 160;
-// user.IsSingle = true;
-// console.log(user);
-// console.log(user["computer skill"]);
-// alert(user.name);
-
-// delete user.name
-// console.log(user);
+// obj1.sayHi();
 
 //Exercise 
-// let human = {};
+// ans. Error ให้ใส่ semi-colon
 
-// human.name = "Thanawat",
-// human.age = 24,
-// human.group = "Nat",
-// human.IsSingle = true,
-// human["Intelligent Score"] = 4
+let user = {
+  name: "John",
+  go: function () { alert(this.name) }
+};
 
-// console.log(human);
+(user.go)()
+
+//Exercise
+function makeUser() {
+  return {
+    name: "John",
+  }    //function ถ้า call this เปล่าๆไม่มี obj.function ตัว this จะไม่มีค่า undefined
+    ref: function () {
+      return this
+  };
+};
+
+let user = makeUser();
+
+alert(user.ref().name); // What's the result?
 
 
 //Exercise
 
-// let obj = {};
-// let key;
-// let value;
+let calculator = {
+  read() {
+    this.x = +prompt("Insert x number");
+    this.y = +prompt("insert y number");
+  },
 
-// while (key !== "stop" || value !== "stop") {
-//   key = prompt("Enter key");
-//   if (key == "stop") {
-//     break;
-//   }
-//     value = prompt("Enter value")
-//     if (value == "stop") {
-//       break;
-//     }
-//   obj[key] = value;
-// }
+  sum() {
+    return this.x + this.y;
+  },
 
-// console.log(obj);
-
-// เสริม
-// let key = prompt("Key");
-// let value = prompt("Value");
-
-// let obj = {};
-
-// obj[key] = value;
-// obj["age"] = 19;
-
-// console.log(obj);
-
-// let obj = {};
-
-// while(true) {  
-//   let propertyName = prompt("Enter property's Name");
-//   if (propertyName == "stop") break;
-//   let propertyValue = prompt("Enter property's Value");
-//   obj[propertyName] = propertyValue;
-// }
-
-// console.log(obj);
-
-// let v1 = "firstName"
-// let user = {};
-
-
-// user[v1] = "Thanawat";
-// user["lastName"] = "J";
-// user["age"] = 24;
-// user["height"] = 160;
-
-
-// Exercise 2
-
-// let fruit = {};
-// let key;
-// let value;
-
-// while (true) {
-//   key = prompt("Enter fruit's name");
-
-//   if (key == "stop") {
-//     break;
-//   }
-
-//   value = Number(prompt("Enter fruit's amount"));
-
-//   if (value > 1) {
-//     fruit[key + "s"] = value;
-//     console.log(fruit);
-//   } else {
-//     fruit[key] = value;
-//     console.log(fruit);
-//   }
-// } 
-
-// Exercise
-
-// const obj = {
-//   name: "thanawat",
-//   age: 24,
-//   height: 160,
-//   weight: 46,
-// }
-
-// let clone = {}; //// Object.assign({}, obj);
-
-// for (let key in obj) { 
-//   clone[key] = obj[key];
-// }
-// clone.name = "kla";
-
-// console.log(clone.name);
-
-
-// Exercise 
-
-let obj = {};
-obj.name = "Sonter";
-obj.surname = "Pakorn";
-obj.name = "Boy";
-delete obj.name;
-
-
-// Exercise 
-
-function isEmpty(obj) {
-  let isEmpty = true;
-  for (let key in obj) {
-    isEmpty = false;
+  mul() {
+    return this.x * this.y;
   }
-  return isEmpty;
-}
-//test
-let obj = {
-
-}
-
-// Exercise
-// ans. ไม่ Error
-
-const user = {
-  name: "John"
 };
 
-// does it work?
-user.name = "Pete";
+calculator.read();
+alert( calculator.sum() );
+alert( calculator.mul() );
 
+//Exercise
 
-// Exercise
-
-let salaries = {
-  John: 100,
-  Ann: 160,
-  Pete: 130
+let ladder = {
+  step: 0,
+  up() {
+    this.step++
+    return this;
+  },
+  down() {
+    this.step--
+    return this;
+  },
+  showStep() { 
+    alert( this.step )
+    return this;
+  }
 };
 
-function sum(salaries) {
-let sum = 0;
-  for (let key in salaries) {
-    sum = sum + salaries[key];
-  }
-  return sum;
-}
-console.log(sum(salaries))
+ladder.up().up().down().showStep(); // 1
 
+// ladder.up();
+// ladder.up();
+// ladder.down();
+// ladder.showStep(); 
+
+//
+
+// let user = {
+//   name: 'Nat',
+//   isAdmin: false
+// }
+
+// let user1 = {
+//   name: 'Tle',
+//   isAdmin: false
+// }
+
+
+// function User(firstname, isAdmin) {
+//   this.name = firstname;
+//   this.isAdmin = isAdmin;
+// }
+
+// let user = new User('Nat', true);
+// let user1 = new User('Tle', false);
+
+// console.log(user);
+// console.log(user1);
+
+// function User(name) {
+//   this.name = name;
+
+//   this.sayHi = function() {
+//     alert("my name is: " + this.name)
+//   }
+// }
+
+// let kla = new User("kla");
+
+// kla.sayHi();
+
+//Exercise
+
+function Calculator() {
+
+  this.read = function() {
+    this.x = Number(prompt("Insert x number"));
+    this.y = Number(prompt("Insert y number"));
+  }
+
+  this.sum = function() {
+    return this.x + this.y;
+  }
+
+  this.mul = function() {
+    return this.x * this.y;
+  }
+}
+
+let calculator = new Calculator();
+calculator.read();
+
+alert("sum=" + calculator.sum());
+alert("mul=" + calculator.mul());
+
+//Exercise
+
+function Accumulator(startingValue) {
+  this.value = startingValue;
+
+  this.read = function () {
+    this.value += Number(prompt("Insert number"));
+  }
+}
+
+
+let accumulator = new Accumulator(4);
+
+console.log(accumulator.value);
+accumulator.read();
+accumulator.read();
+alert(accumulator.value);
 
 
 //Exercise
-function multiplyNumeric(obj, times) {
-  for (let key in obj) {
-    if (typeof (obj[key]) == "number") {
-      obj[key] *= times;
-    }
-  }
-  return obj;
-}
-
-let menu = {
-  width: 200,
-  height: 300,
-  title: "My menu"
-};
-
-console.log(multiplyNumberic(obj, 2));
-
-
-
-// Clone
-const obj = {
-  name: 'sonter',
-  age: 18,
-  height: 196,
-  weight: 70,
-}
-
-const obj2 = {
-  name: 'Nat',
-  weight: 98
-}
-
-const obj3 = {
-  name: 'Tle',
-  skill: "nodejs"
-}
-
-const obj4 = {
-  name: 'Kla',
-  address: 'Thailand'
-}
-
-Object.assign(obj3, obj, obj2, obj4);
-
-console.log(obj3);
-
-console.log(obj);
-
-console.log(obj2);
+let num = 1.23456;
+alert( Math.floor(num * 100) / 100 );
