@@ -121,4 +121,45 @@ function sumArray(arr) {
 sumInput();
 
 // * Array methods *
-// Exercise
+// Lab
+Array.prototype.klaForEach = function(callback) {
+  for(let i = 0; i < this.length; i++) {
+    callback(this[i], i, this, "KLA");
+  }
+}
+
+["google", "yahoo", "safari"].klaForEach(function(element, index, arr, user){
+  console.log(`element = ${element} `);
+  console.log(`index = ${index} `);
+  console.log(`arr = ${arr} `);
+  console.log(`user = ${user} `);
+})
+
+//Exercise array: map
+// Exercise 1.1
+let array1 = [1, 2, 30, 400]
+
+let array2 = array1.map(item => item * 2);
+
+alert(array2);
+
+//Exercise 1.2
+let array1 = [1, 2, 3, 4]
+
+let array2 = array1.map(item => String(item));
+
+alert(array2);
+
+//Exercise 1.3
+let array1 = [1, "1", 2, {}]
+
+let array2 = array1.map(item => typeof(item));
+
+alert(array2);
+
+//Exercise 1.4
+let array1 = ["apple", "banana", "orange"]
+
+let array2 = array1.map(item => item.toUpperCase());
+
+alert(array2);
