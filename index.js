@@ -253,7 +253,7 @@ let array2 = array1.map((item) => {
 let array2 = array1.map((item) => ({ ...item, age: 2020 - item.birth.split("-")[0] }))
 
 console.log(array2);
-// array2 [
+// array2 
 //   { name: "apple", birth: "2000-01-01", age: 19 },
 //   { name: "banana", birth: "1990-10-01", age: 29 },
 //   { name: "watermelon", birth: "1985-12-01", age: 33 },
@@ -278,9 +278,28 @@ let array1 = [
   { name: "watermelon", birth: "1985-12-30" },
 ];
 
-let array2 = array1.map(function (item) {
-  let array = item.
+let array2 = array1.map((item) => {
+  return (
+    `<tr>
+          <td> ${item.name}</td>
+          <td> ${birthDay}</td>
+    </tr>
+    `
+  );
 })
+
+let date = new Date(2000 - 01 - 01)
+console.log(date);
+console.log(date.getDate());
+console.log(date.getFullYear());
+console.log(date.getMonth());
+
+let month = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+let Month = month.filter((item, index) => index == date.getMonth())
+console.log(Month);
+
+birthDay = date.getDate() + " " + Month[0] + " " + date.getFullYear()
+console.log(birthDay);
 
 console.log(array2);
 // array2 [
@@ -291,6 +310,7 @@ console.log(array2);
 //     "<tr> <td>banana</td> <td>10 oct 1990</td> </tr>",
 //     "<tr> <td>watermelon</td> <td>30 dec 1985</td> </tr>",
 // ] 
+
 
 
 
@@ -329,3 +349,15 @@ console.log(array2);
 
 
 //Exercise 2.12
+
+
+//Exercise Map and Sep
+//Exercise 1
+function unique(arr) {
+  return Array.from(new Set(arr))
+
+}
+
+let values = ["Hare", "Krishna", "Hare", "Krishna", "Krishna", "Krishna", "Hare", "Hare", ":-O"];
+
+alert(unique(values));
