@@ -390,7 +390,8 @@ let array1 = [
   { name: "peach", age: 24 },
 ];
 
-let array2 = array1.filter((item) => { item.age != 32
+let array2 = array1.filter((item) => {
+  item.age != 32
 
 });
 
@@ -412,7 +413,7 @@ console.log(array2); // array2 [1, 2, 8, 5] // filter เลขบวก
 
 
 //Exercise 2.8
-let array1 = [1,3,4,5,6,7,8];
+let array1 = [1, 3, 4, 5, 6, 7, 8];
 
 let array2 = array1.filter(item => item % 3 == 0);
 
@@ -443,7 +444,7 @@ let array1 = [
   { name: "peach", birth: "2002-10-13" },
 ];
 
-let array2 = array1.filter(function (item) { 
+let array2 = array1.filter(function (item) {
   let array = item.birth.split("-");
   return array[1] == 10;
 });
@@ -475,14 +476,61 @@ console.log(array2);
 
 
 
-
-//Exercise Map and Sep
+//Exercise Map and Set
 //Exercise 1
 function unique(arr) {
-  return Array.from(new Set(arr))
+  let valueSet = new Set(arr);
+  let result = [];
 
+  for (let element of valueSet) {
+    result.push(element)
+  }
+  return result;
 }
 
 let values = ["Hare", "Krishna", "Hare", "Krishna", "Krishna", "Krishna", "Hare", "Hare", ":-O"];
 
 alert(unique(values));
+
+//Exercise 2
+let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+alert(aclean(arr)); // "nap,teachers,ear" or "PAN,cheaters,era"
+
+
+//Exercise 3
+
+
+// * Keys, Values, Entities *
+//Exercise 1
+function sumSalaries(salaries) {
+  let sum = 0;
+  for(let salary of Object.values(salaries)) {
+    sum += salary;
+  }
+
+  return sum;
+}
+
+let salaries = {
+  "John": 100,
+  "Pete": 300,
+  "Mary": 250
+};
+
+alert(sumSalaries(salaries)); // 650
+console.log(sumSalaries(salaries));
+
+
+//Exercise 2
+function count(object) {
+  return Object.keys(user).length;
+}
+
+let user = {
+  name: 'John',
+  age: 30
+};
+
+alert(count(user)); // 2
+
